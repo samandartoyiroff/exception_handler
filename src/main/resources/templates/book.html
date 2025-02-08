@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <title>Books</title>
+</head>
+<body>
+
+<h1>Book Page</h1>
+<div class="container"> <!-- Fixed container tag -->
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Title</th>
+            <th>Author</th>
+            <th>Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="book : ${books}"> <!-- Fixed the iteration syntax -->
+            <td th:text="${book.id}"></td> <!-- Changed <th> to <td> -->
+            <td th:text="${book.title}"></td>
+            <td th:text="${book.author}"></td> <!-- Fixed method call -->
+            <td>
+                <a th:href="|/book/info/${book.id}|" class="btn btn-dark text-white">Info</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
